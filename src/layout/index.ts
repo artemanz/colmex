@@ -1,0 +1,5 @@
+export { Hero } from './Hero'
+export { About } from './About'
+export { Instagram } from './Instagram'
+export { Work } from './Work'
+export { Feedback } from './Feedback'

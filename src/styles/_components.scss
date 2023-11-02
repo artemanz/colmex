@@ -1,0 +1,5 @@
+@layer components {
+  .button {
+    @apply block py-5 font-bold text-white rounded-full bg-accent hover:bg-accent_focus focus:bg-accent_focus transition-colors;
+  }
+}

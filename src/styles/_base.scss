@@ -1,0 +1,31 @@
+@layer base {
+  html {
+    @media (min-width: 320px) {
+      font-size: 12px;
+    }
+    @media (min-width: 375px) {
+      font-size: 16px;
+    }
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+    @media (min-width: 2560px) {
+      font-size: 24px;
+    }
+    @media (min-width: 1200px) {
+      font-size: 16px;
+    }
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-primary text-foreground;
+  }
+
+  .content {
+    @apply max-w-[75rem] mx-auto;
+  }
+}
