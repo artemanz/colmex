@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { links } from "../links";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { changeLang } from "@/store/lang";
 
 interface Props {
   mobileMenu: boolean;
@@ -87,13 +88,19 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             <div className="flex flex-col items-center">
               <Globe />
               <span>
-                <Link to="#en" className="transition-colors hover:text-accent">
+                <button
+                  onClick={() => changeLang("en")}
+                  className="transition-colors hover:text-accent"
+                >
                   ENG
-                </Link>{" "}
+                </button>{" "}
                 /{" "}
-                <Link to="#esp" className="transition-colors hover:text-accent">
+                <button
+                  onClick={() => changeLang("esp")}
+                  className="transition-colors hover:text-accent"
+                >
                   ESP
-                </Link>
+                </button>
               </span>
             </div>
           </nav>

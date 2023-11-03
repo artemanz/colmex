@@ -7,18 +7,18 @@ import { Services } from "./layout/Services";
 import { Star } from "./assets/svg";
 import { $popups } from "./store/popups";
 import { useStore } from "effector-react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { changeLanguage } from "i18next";
+import { $lang } from "./store/lang";
 function App() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const popups = useStore($popups);
-  const location = useLocation();
-  useEffect(() => {
-    if (location.hash === "#en") changeLanguage("en");
-    else if (location.hash === "#esp") changeLanguage("esp");
-    console.log(location.hash);
+  const lang = useStore($lang);
 
-  }, [location.hash]);
+  useEffect(() => {
+    if (lang.lang === "en") changeLanguage("en");
+    else if (lang.lang === "esp") changeLanguage("esp");
+  }, [lang]);
 
   return (
     <Routes>
