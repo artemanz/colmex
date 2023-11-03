@@ -12,7 +12,8 @@ const Footer = (props: Props) => {
           <div className="gap-4 desktop:flex">
             <a
               className="flex items-center gap-1 text-white group"
-              href="tel:+529844513615"
+              href="https://wa.me/+529844513615"
+              target="_blank"
             >
               <div className="w-6 desktop:w-10">
                 <Chats />
@@ -81,7 +82,7 @@ const Footer = (props: Props) => {
 
         <p className="text-lg text-center">
           © COL MEX, 2023 <br />
-          Created by WEBLAB 420
+          Created by <a href="https://weblab420.com/" target="_blank">WEBLAB 420</a>
         </p>
       </div>
     </footer>

@@ -16,6 +16,7 @@ export default {
         accent: "#F6A717",
         accent_focus: "#F2B648",
         accent_1: "#FDE9C5",
+        error: "rgb(248 113 113)"
       },
     },
   },

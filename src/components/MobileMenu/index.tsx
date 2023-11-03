@@ -5,6 +5,8 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import clsx from "clsx";
 import { accordions } from "../accordions";
 import { links } from "../links";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface Props {
   mobileMenu: boolean;
@@ -13,6 +15,7 @@ interface Props {
 
 const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
   const [accordion, setAccordion] = useState(-1);
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.documentElement.style.overflowY = "hidden";
@@ -36,7 +39,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
               href={li.href}
             >
               {<li.icon />}
-              <span>{li.text}</span>
+              <span>{t(li.text)}</span>
             </a>
           </li>
         ))}
@@ -58,7 +61,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
               }}
               className="flex items-center justify-between max-w-[75%] mx-auto w-full"
             >
-              <span>{a.title}</span>
+              <span>{t(a.title)}</span>
               <span
                 className={clsx(
                   "transition-all duration-300",
@@ -79,7 +82,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
                   <li key={c.text}>
                     <a className="flex items-center gap-4" href="#">
                       {c.icon && <img className="w-7" src={c.icon} alt="" />}
-                      <span>{c.text}</span>
+                      <span>{t(c.text)}</span>
                     </a>
                   </li>
                 ))}
@@ -92,7 +95,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
       <div className="flex flex-col items-center mt-auto">
         <Globe />
         <span>
-          <a href="#">ENG</a> / <a href="#">ESP</a>
+          <Link to="#en">ENG</Link> / <Link to="#esp">ESP</Link>
         </span>
       </div>
     </motion.div>

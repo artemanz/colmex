@@ -1,9 +1,11 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Burger, Chats, Logo, User, Close, Arrow, Globe } from "@/assets/svg";
 import { accordions } from "../accordions";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { links } from "../links";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   mobileMenu: boolean;
@@ -12,6 +14,19 @@ interface Props {
 
 const Header = ({ mobileMenu, setMobileMenu }: Props) => {
   const [accordion, setAccordion] = useState(-1);
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    function hideAccordion(e: MouseEvent) {
+      const target = e.target as HTMLElement;
+      if (!target.closest("[data-selector=trigger-accordion]"))
+        setAccordion(-1);
+    }
+
+    window.addEventListener("click", hideAccordion);
+
+    return () => window.removeEventListener("click", hideAccordion);
+  }, []);
 
   return (
     <header className="relative z-10 font-secondary">
@@ -20,14 +35,15 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
           <div className="gap-4 desktop:flex">
             <a
               className="flex items-center gap-1 text-white group"
-              href="tel:+529844513615"
+              href="https://wa.me/+529844513615"
+              target="_blank"
             >
               <div className="w-6 desktop:w-10">
                 <Chats />
               </div>
               <div className="flex flex-col">
                 <span className="hidden text-sm font-normal desktop:block text-neutral">
-                  Contact
+                  {t("header.contact")}
                 </span>
                 <span className="font-bold transition-colors group-hover:text-accent">
                   +529844513615
@@ -43,7 +59,7 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
               </div>
               <div className="flex flex-col">
                 <span className="hidden text-sm font-normal desktop:block text-neutral">
-                  Have a questions?
+                  {t("header.question")}
                 </span>
                 <span className="font-bold transition-colors group-hover:text-accent">
                   serviciosoperativoscolmex@gmail.com
@@ -63,7 +79,7 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
                     <div>
                       <li.icon />
                     </div>
-                    <span>{li.text}</span>
+                    <span>{t(li.text)}</span>
                   </a>
                 </li>
               ))}
@@ -71,13 +87,13 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             <div className="flex flex-col items-center">
               <Globe />
               <span>
-                <a className="transition-colors hover:text-accent" href="#">
+                <Link to="#en" className="transition-colors hover:text-accent">
                   ENG
-                </a>{" "}
+                </Link>{" "}
                 /{" "}
-                <a className="transition-colors hover:text-accent" href="#">
+                <Link to="#esp" className="transition-colors hover:text-accent">
                   ESP
-                </a>
+                </Link>
               </span>
             </div>
           </nav>
@@ -89,9 +105,6 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
         <a href="/">
           <Logo />
         </a>
-        <p className="text-xs leading-loose text-neutral">
-          Professional Repairs <br /> & Handyman Services
-        </p>
 
         {mobileMenu ? (
           <button
@@ -118,13 +131,14 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             className="py-3 transition-all duration-300"
           >
             <button
+              data-selector="trigger-accordion"
               onClick={() => {
                 if (accordion === 0) setAccordion(-1);
                 else setAccordion(0);
               }}
               className="flex items-center justify-between"
             >
-              <span>{accordions[0].title}</span>
+              <span>{t(accordions[0].title)}</span>
               <span
                 className={clsx(
                   "transition-all duration-300",
@@ -140,13 +154,14 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             className="py-3 transition-all duration-300"
           >
             <button
+              data-selector="trigger-accordion"
               onClick={() => {
                 if (accordion === 1) setAccordion(-1);
                 else setAccordion(1);
               }}
               className="flex items-center justify-between"
             >
-              <span>{accordions[1].title}</span>
+              <span>{t(accordions[1].title)}</span>
               <span
                 className={clsx(
                   "transition-all duration-300",
@@ -163,13 +178,14 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             className="py-3 transition-all duration-300"
           >
             <button
+              data-selector="trigger-accordion"
               onClick={() => {
                 if (accordion === 2) setAccordion(-1);
                 else setAccordion(2);
               }}
               className="flex items-center justify-between"
             >
-              <span>{accordions[2].title}</span>
+              <span>{t(accordions[2].title)}</span>
               <span
                 className={clsx(
                   "transition-all duration-300",
@@ -185,13 +201,14 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             className="py-3 transition-all duration-300"
           >
             <button
+              data-selector="trigger-accordion"
               onClick={() => {
                 if (accordion === 3) setAccordion(-1);
                 else setAccordion(3);
               }}
               className="flex items-center justify-between"
             >
-              <span>{accordions[3].title}</span>
+              <span>{t(accordions[3].title)}</span>
               <span
                 className={clsx(
                   "transition-all duration-300",
@@ -209,22 +226,18 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1, originY: 0 }}
             style={{
-              left:
-                accordion === 0
-                  ? "0"
-                  : accordion === 1
-                  ? "15%"
-                  : accordion === 2
-                  ? "45%"
-                  : "60%",
+              left: accordion === 0 ? "0" : accordion === 1 ? "15%" : "auto",
+              right: accordion === 2 ? "15%" : accordion === 3 ? "0" : "auto",
             }}
             className="absolute z-10 top-[110%]"
           >
-            <ul className="grid grid-cols-2 p-5 bg-white border gap-y-2 gap-x-5 border-accent rounded-xl">
+            <ul className="grid items-center max-w-2xl grid-cols-2 p-5 bg-white border gap-y-2 gap-x-5 border-accent rounded-xl">
               {accordions[accordion].content.map((c) => (
-                <li className="flex items-center gap-2" key={c.text}>
-                  <img className="w-16 h-16" src={c.icon} alt="" />
-                  <span>{c.text}</span>
+                <li key={c.text}>
+                  <a className="flex items-center gap-2" href="#services">
+                    <img className="w-16 h-16" src={c.icon} alt="" />
+                    <span>{t(c.text)}</span>
+                  </a>
                 </li>
               ))}
             </ul>

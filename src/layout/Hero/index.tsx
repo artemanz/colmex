@@ -2,10 +2,12 @@ import { Star } from "@/assets/svg";
 import heroBg from "./assets/hero-bg.webp";
 import heroPicture from "./assets/hero-picture.webp";
 import { Form } from "@/components";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 const Hero = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <section className="relative pt-5 bg-accent_1 font-secondary desktop:min-h-[48rem] desktop:flex">
       <img
@@ -25,9 +27,9 @@ const Hero = (props: Props) => {
           </div>
 
           <h1 className="mb-8 font-bold text-center uppercase">
-            Professional AC, PLUBMING, <br />
-            PAINTINg, Repairs <br />
-            and Handyman Services
+            {t("hero.title.1")}<br />
+            {t("hero.title.2")} <br />
+            {t("hero.title.3")}
           </h1>
 
           <Form />

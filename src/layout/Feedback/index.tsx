@@ -22,7 +22,7 @@ const Feedback = (props: Props) => {
             </div>
             <ul className="flex flex-col gap-5">
               <li className="flex items-center gap-5">
-                <div className="flex-shrink-0 basis-16">
+                <div className="flex-shrink-0 basis-16 min-w-[64px]">
                   <Discuss />
                 </div>
                 <p>
@@ -31,7 +31,7 @@ const Feedback = (props: Props) => {
                 </p>
               </li>
               <li className="flex items-center gap-5">
-                <div className="flex-shrink-0 basis-16">
+                <div className="flex-shrink-0 basis-16 min-w-[64px]">
                   <Settings />
                 </div>
                 <p>
@@ -40,7 +40,7 @@ const Feedback = (props: Props) => {
                 </p>
               </li>
               <li className="flex items-center gap-5">
-                <div className="flex-shrink-0 basis-16">
+                <div className="flex-shrink-0 basis-16 min-w-[64px]">
                   <Target />
                 </div>
                 <p>
