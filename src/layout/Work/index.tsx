@@ -1,10 +1,11 @@
 import { workBg } from "./assets";
-import { Discuss, Settings, Target } from "../Feedback/assets/svg";
 import { showFormPopup } from "@/store/popups";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 const Work = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <section>
       <div>
@@ -19,11 +20,14 @@ const Work = (props: Props) => {
 
           <div className="relative text-white content">
             <p className="mb-8 text-3xl font-bold uppercase font-secondary desktop:text-4xl ">
-              Available Time <br />
+              {t("work.title")} <br />
               7:00 - 19:00
             </p>
-            <button onClick={() => showFormPopup()} className="button w-80 desktop:w-[34rem]">
-              BOOK NOW
+            <button
+              onClick={() => showFormPopup()}
+              className="button w-80 desktop:w-[34rem]"
+            >
+              {t("button")}
             </button>
           </div>
         </div>

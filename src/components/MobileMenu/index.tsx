@@ -28,9 +28,9 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
     <motion.div
       initial={{ scaleY: 0, transformOrigin: "top" }}
       animate={{ scaleY: 1, transition: { ease: "easeOut" } }}
-      className="fixed inset-x-0 flex flex-col gap-8 px-5 py-8 overflow-y-auto bg-white top-40 h-[70vh] desktop:hidden"
+      className="fixed inset-x-0 flex flex-col gap-8 px-5 py-8 overflow-y-auto bg-white top-36 md:top-32 h-[70vh] desktop:hidden"
     >
-      <ul className="flex justify-evenly">
+      <ul className="flex justify-between">
         {links.map((li) => (
           <li key={li.text}>
             <a
@@ -59,7 +59,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
                 if (accordion === idx) setAccordion(-1);
                 else setAccordion(idx);
               }}
-              className="flex items-center justify-between max-w-[75%] mx-auto w-full"
+              className="flex items-center justify-between w-full mx-auto"
             >
               <span>{t(a.title)}</span>
               <span
@@ -80,7 +80,11 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
               <ul className="flex flex-col gap-5">
                 {a.content.map((c) => (
                   <li key={c.text}>
-                    <a className="flex items-center gap-4" href="#">
+                    <a
+                      onClick={() => setMobileMenu(false)}
+                      className="flex items-center gap-4"
+                      href="#services"
+                    >
                       {c.icon && <img className="w-7" src={c.icon} alt="" />}
                       <span>{t(c.text)}</span>
                     </a>

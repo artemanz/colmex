@@ -1,24 +1,23 @@
 import { Star } from "@/assets/svg";
 import { Discuss, Settings, Target } from "./assets/svg";
 import { Form } from "@/components";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 const Feedback = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <section id="feedback">
       <div className="desktop:flex">
         <div className="px-4 py-20 text-white bg-foreground basis-1/2">
           <div className="max-w-sm mx-auto">
             <div className="mb-8 text-center">
-              <p className="mb-2 text-accent">GET A FREE QUOTE</p>
+              <p className="mb-2 text-accent">{t("feedback.accent")}</p>
               <h2 className="mb-4 text-3xl font-bold uppercase font-secondary">
-                HOW IT WORKS
+                {t("feedback.title")}
               </h2>
-              <p>
-                Please contact our team or complete the form below. A
-                representative will contact you shortly.
-              </p>
+              <p>{t("feedback.subtitle")}</p>
             </div>
             <ul className="flex flex-col gap-5">
               <li className="flex items-center gap-5">
@@ -26,8 +25,7 @@ const Feedback = (props: Props) => {
                   <Discuss />
                 </div>
                 <p>
-                  Raise Your Request <br /> We'll talk about your issues, how
-                  you use technology, and what you want to get out of IT.
+                  {t("feedback.list.1.1")} <br /> {t("feedback.list.1.2")}
                 </p>
               </li>
               <li className="flex items-center gap-5">
@@ -35,8 +33,7 @@ const Feedback = (props: Props) => {
                   <Settings />
                 </div>
                 <p>
-                  Get Estimate <br /> If we're the right fit, you'll choose the
-                  IT service agreement that works best for your organization.
+                  {t("feedback.list.2.1")} <br /> {t("feedback.list.2.2")}
                 </p>
               </li>
               <li className="flex items-center gap-5">
@@ -44,8 +41,7 @@ const Feedback = (props: Props) => {
                   <Target />
                 </div>
                 <p>
-                  Schedule Visit <br /> Within days, you'll be experiencing IT
-                  like never before.
+                  {t("feedback.list.3.1")} <br /> {t("feedback.list.3.2")}
                 </p>
               </li>
             </ul>

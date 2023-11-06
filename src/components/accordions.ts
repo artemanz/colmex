@@ -26,67 +26,67 @@ export const accordions = [
   {
     title: "header.services.ac_service",
     content: [
-      { text: "header.servicePopup.AC Duct Cleaning", icon: dustCleaning },
-      { text: "header.servicePopup.AC Repair", icon: repair },
-      { text: "header.servicePopup.AC Installation", icon: installation },
-      { text: "header.servicePopup.AC Maintenance Service", icon: maintenance },
+      { text: "services.AC Duct Cleaning", icon: dustCleaning },
+      { text: "services.AC Repair", icon: repair },
+      { text: "services.AC Installation", icon: installation },
+      { text: "services.AC Maintenance Service", icon: maintenance },
     ],
   },
   {
     title: "header.services.plumbing",
     content: [
       {
-        text: "header.servicePopup.Leakage inspection and repair",
+        text: "services.Leakage inspection and repair",
         icon: leakage,
       },
       {
-        text: "header.servicePopup.Bathtub installation and repair",
+        text: "services.Bathtub installation and repair",
         icon: bathtub,
       },
       {
-        text: "header.servicePopup.Fixture installation and repair",
+        text: "services.Fixture installation and repair",
         icon: fixture,
       },
-      { text: "header.servicePopup.Water tank cleaning", icon: waterTank },
-      { text: "header.servicePopup.Drainage Cleaning", icon: drainage },
+      { text: "services.Water tank cleaning", icon: waterTank },
+      { text: "services.Drainage Cleaning", icon: drainage },
     ],
   },
   {
     title: "header.services.painting",
     content: [
       {
-        text: "header.servicePopup.Furniture Painting & Polishing",
+        text: "services.Furniture Painting & Polishing",
         icon: furniture,
       },
-      { text: "header.servicePopup.House Painting", icon: house },
-      { text: "header.servicePopup.Wallpaper Installation", icon: wallpaper },
-      { text: "header.servicePopup.Office Painting", icon: office },
+      { text: "services.House Painting", icon: house },
+      { text: "services.Wallpaper Installation", icon: wallpaper },
+      { text: "services.Office Painting", icon: office },
     ],
   },
   {
     title: "header.services.handyman",
     content: [
       {
-        text: "header.servicePopup.Furniture Assemble",
+        text: "services.Furniture Assemble",
         icon: furnitureAssemble,
       },
       {
-        text: "header.servicePopup.Wallpaper Installation or Removal",
+        text: "services.Wallpaper Installation or Removal",
         icon: wallpaperInstallation,
       },
-      { text: "header.servicePopup.Curtain Hanging", icon: curtain },
-      { text: "header.servicePopup.TV Mounting & Hanging", icon: tv },
+      { text: "services.Curtain Hanging", icon: curtain },
+      { text: "services.TV Mounting & Hanging", icon: tv },
       {
-        text: "header.servicePopup.Door lock, chandelier, shelves hanging repair",
+        text: "services.Door lock, chandelier, shelves hanging repair",
         icon: doorlock,
       },
       {
-        text: "header.servicePopup.Electrical and Lighting Upgrades",
+        text: "services.Electrical and Lighting Upgrades",
         icon: electrical,
       },
-      { text: "header.servicePopup.Staircase Renovation", icon: staircase },
+      { text: "services.Staircase Renovation", icon: staircase },
       {
-        text: "header.servicePopup.Door and Window Casing Installation",
+        text: "services.Door and Window Casing Installation",
         icon: doorandwindow,
       },
     ],

@@ -10,7 +10,12 @@ import { useStore } from "effector-react";
 import { Route, Routes } from "react-router-dom";
 import { changeLanguage } from "i18next";
 import { $lang } from "./store/lang";
+
+import { hideFormPopup, hideGreetingsPopup } from "@/store/popups";
+import { useTranslation } from "react-i18next";
+
 function App() {
+  const { t } = useTranslation();
   const [mobileMenu, setMobileMenu] = useState(false);
   const popups = useStore($popups);
   const lang = useStore($lang);
@@ -46,7 +51,7 @@ function App() {
             )}
 
             {popups.form && (
-              <Popup>
+              <Popup hide={hideFormPopup}>
                 <div className="flex items-center justify-center gap-2 mb-8 text-accent">
                   <Star />
                   <Star />
@@ -55,6 +60,14 @@ function App() {
                   <Star />
                 </div>
                 <Form />
+              </Popup>
+            )}
+            {popups.greetings && (
+              <Popup hide={hideGreetingsPopup}>
+                <div className="text-xl font-bold text-center">
+                  {t("greetings.1")} <br />
+                  {t("greetings.2")}
+                </div>
               </Popup>
             )}
           </div>

@@ -1,10 +1,13 @@
 import { Chats, Globe, User } from "@/assets/svg";
 import { Logo } from "./svg";
 import { links } from "../links";
+import { useTranslation } from "react-i18next";
+import { changeLang } from "@/store/lang";
 
 interface Props {}
 
 const Footer = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <footer>
       <div className="px-4 pt-4 pb-12 text-white bg-foreground desktop:pt-12">
@@ -20,7 +23,7 @@ const Footer = (props: Props) => {
               </div>
               <div className="flex flex-col">
                 <span className="hidden text-sm font-normal desktop:block text-neutral">
-                  Contact
+                  {t("header.contact")}
                 </span>
                 <span className="font-bold transition-colors group-hover:text-accent">
                   +529844513615
@@ -36,7 +39,7 @@ const Footer = (props: Props) => {
               </div>
               <div className="flex flex-col">
                 <span className="hidden text-sm font-normal desktop:block text-neutral">
-                  Have a questions?
+                  {t("header.question")}
                 </span>
                 <span className="font-bold transition-colors group-hover:text-accent">
                   serviciosoperativoscolmex@gmail.com
@@ -56,7 +59,7 @@ const Footer = (props: Props) => {
                     <div>
                       <li.icon />
                     </div>
-                    <span>{li.text}</span>
+                    <span>{t(li.text)}</span>
                   </a>
                 </li>
               ))}
@@ -64,13 +67,19 @@ const Footer = (props: Props) => {
             <div className="flex flex-col items-center">
               <Globe />
               <span>
-                <a className="transition-colors hover:text-accent" href="#">
+                <button
+                  onClick={() => changeLang("en")}
+                  className="transition-colors hover:text-accent"
+                >
                   ENG
-                </a>{" "}
+                </button>{" "}
                 /{" "}
-                <a className="transition-colors hover:text-accent" href="#">
+                <button
+                  onClick={() => changeLang("esp")}
+                  className="transition-colors hover:text-accent"
+                >
                   ESP
-                </a>
+                </button>
               </span>
             </div>
           </nav>
@@ -82,7 +91,10 @@ const Footer = (props: Props) => {
 
         <p className="text-lg text-center">
           © COL MEX, 2023 <br />
-          Created by <a href="https://weblab420.com/" target="_blank">WEBLAB 420</a>
+          {t("footer.weblab")}{" "}
+          <a className="transition-colors hover:text-accent" href="https://weblab420.com/" target="_blank">
+            WEBLAB 420
+          </a>
         </p>
       </div>
     </footer>

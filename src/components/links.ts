@@ -4,6 +4,6 @@ export const links = [
   { icon: About, text: "header.menu.about", href: "#about" },
   { icon: Services, text: "header.menu.services", href: "#services" },
   { icon: Offers, text: "header.menu.offers", href: "#offers" },
-  { icon: Blog, text: "header.menu.blog", href: "#" },
+  { icon: Blog, text: "header.menu.blog", href: "#instagram" },
   { icon: ContactUs, text: "header.menu.contact_us", href: "#feedback" },
 ];

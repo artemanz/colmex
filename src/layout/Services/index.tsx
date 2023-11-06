@@ -1,67 +1,97 @@
 import { showFormPopup } from "@/store/popups";
 import { card1, card2, card3, card4, discountBg } from "./assets";
-import { AcService, Handyman, Painting, Plumbing } from "./assets/svg";
+import { AcService, Handyman, Painting, Plumbing } from "@/assets/svg";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
-const serviceCards = [
-  {
-    id: "acService",
-    bg: card1,
-    icon: AcService,
-    services: [
-      "AC Duct Cleaning",
-      "AC Installation",
-      "AC Maintenance Service",
-      "AC Repair",
-    ],
-  },
-  {
-    id: "plumbing",
-    bg: card2,
-    icon: Plumbing,
-    services: [
-      "Leakage inspection and repair",
-      "Fixture installation and repair",
-      "Bathtub installation and repair",
-      "Drainage Cleaning",
-      "Water tank cleaning",
-    ],
-  },
-  {
-    id: "painting",
-    bg: card3,
-    icon: Painting,
-    services: [
-      "Furniture Painting & Polishing",
-      "House Painting",
-      "Office Painting",
-      "Wallpaper Installation or Removal",
-    ],
-  },
-  {
-    id: "AcService",
-    bg: card4,
-    icon: Handyman,
-    services: [
-      "Furniture Assemble",
-      "Curtain Hanging",
-      "TV Mounting & Hanging",
-      "Door lock, chandelier, shelves hanging repair",
-      "Electrical and Lighting Upgrades",
-      "Staircase Renovation",
-      "Door and Window Casing Installation",
-    ],
-  },
-];
-
 const Services = (props: Props) => {
+  const { t } = useTranslation();
+  const serviceCards = [
+    {
+      id: "acService",
+      bg: card1,
+      icon: (
+        <div className="flex flex-col items-center justify-center gap-2 text-xs bg-white rounded-full desktop:text-lg w-28 desktop:w-36 h-28 desktop:h-36">
+          <AcService />
+          <span className="text-center whitespace-pre-line">
+            {t("icons.ac")}
+          </span>
+        </div>
+      ),
+      services: [
+        t("services.AC Duct Cleaning"),
+        t("services.AC Installation"),
+        t("services.AC Maintenance Service"),
+        t("services.AC Repair"),
+      ],
+    },
+    {
+      id: "plumbing",
+      bg: card2,
+      icon: (
+        <div className="flex flex-col items-center justify-center gap-2 text-xs bg-white rounded-full desktop:text-lg w-28 desktop:w-36 h-28 desktop:h-36">
+          <Plumbing />
+          <span className="text-center whitespace-pre-line">
+            {t("icons.plumbing")}
+          </span>
+        </div>
+      ),
+      services: [
+        t("services.Leakage inspection and repair"),
+        t("services.Fixture installation and repair"),
+        t("services.Bathtub installation and repair"),
+        t("services.Drainage Cleaning"),
+        t("services.Water tank cleaning"),
+      ],
+    },
+    {
+      id: "painting",
+      bg: card3,
+      icon: (
+        <div className="flex flex-col items-center justify-center gap-2 text-xs bg-white rounded-full desktop:text-lg w-28 desktop:w-36 h-28 desktop:h-36">
+          <Painting />
+          <span className="text-center whitespace-pre-line">
+            {t("icons.painting")}
+          </span>
+        </div>
+      ),
+      services: [
+        t("services.Furniture Painting & Polishing"),
+        t("services.House Painting"),
+        t("services.Office Painting"),
+        t("services.Wallpaper Installation or Removal"),
+      ],
+    },
+    {
+      id: "handyman",
+      bg: card4,
+      icon: (
+        <div className="flex flex-col items-center justify-center gap-2 text-xs bg-white rounded-full desktop:text-lg w-28 desktop:w-36 h-28 desktop:h-36">
+          <Handyman />
+          <span className="text-center whitespace-pre-line">
+            {t("icons.handyman")}
+          </span>
+        </div>
+      ),
+      services: [
+        t("services.Furniture Assemble"),
+        t("services.Curtain Hanging"),
+        t("services.TV Mounting & Hanging"),
+        t("services.Door lock, chandelier, shelves hanging repair"),
+        t("services.Electrical and Lighting Upgrades"),
+        t("services.Staircase Renovation"),
+        t("services.Door and Window Casing Installation"),
+      ],
+    },
+  ];
+
   return (
     <section id="services">
       <div className="py-20">
         <div className="desktop:px-8 content">
           <h2 className="mb-8 text-3xl font-bold text-center font-secondary">
-            SERVICES
+            {t("servicesSection.title")}
           </h2>
 
           <ul className="flex flex-col gap-5 desktop:grid desktop:grid-cols-2 desktop:auto-rows-[44rem] mb-8">
@@ -75,15 +105,18 @@ const Services = (props: Props) => {
                 <div className="absolute inset-0 bg-accent_1 bg-opacity-70" />
 
                 <div className="relative flex flex-col items-center justify-center h-full">
-                  <div className="mb-8 desktop:mb-24">
-                    <card.icon />
-                  </div>
+                  <div className="mb-8 desktop:mb-24">{card.icon}</div>
                   <ul className="flex flex-col gap-4 mb-8 text-center text-black desktop:text-xl ">
                     {card.services.map((s) => (
                       <li key={s}>{s}</li>
                     ))}
                   </ul>
-                  <button onClick={() => showFormPopup()} className="mt-auto button w-80">BOOK NOW</button>
+                  <button
+                    onClick={() => showFormPopup()}
+                    className="mt-auto button w-80"
+                  >
+                    {t("button")}
+                  </button>
                 </div>
               </li>
             ))}
@@ -101,13 +134,14 @@ const Services = (props: Props) => {
 
           <div className="relative text-white content">
             <p className="mb-4 text-3xl font-bold uppercase font-secondary desktop:text-4xl">
-              Claim a Discount When <br className="hidden desktop:block" /> You
-              Share a Video Review!
+              {t("servicesSection.banner.title.1")}{" "}
+              <br className="hidden desktop:block" />{" "}
+              {t("servicesSection.banner.title.2")}
             </p>
             <ol className="mb-8 desktop:text-2xl">
-              <li>1. Post a Video Review in Your Instagram</li>
+              <li>{t("servicesSection.banner.list.1")}</li>
               <li>
-                2. Include Our Instagram Link <br />
+                {t("servicesSection.banner.list.2.1")} <br />
                 &nbsp; &nbsp;{" "}
                 <a
                   className="transition-colors hover:text-accent"
@@ -116,13 +150,18 @@ const Services = (props: Props) => {
                 >
                   @serviciosoperativoscolmex
                 </a>{" "}
-                in the Description
+                {t("servicesSection.banner.list.2.2")}
               </li>
-              <li>3. Send it to Us</li>
-              <li>4. Wait for Confirmation</li>
-              <li>5. Receive Your Discount</li>
+              <li>{t("servicesSection.banner.list.3")}</li>
+              <li>{t("servicesSection.banner.list.4")}</li>
+              <li>{t("servicesSection.banner.list.5")}</li>
             </ol>
-            <button onClick={() => showFormPopup()} className="button w-80 desktop:w-[34rem]">BOOK NOW</button>
+            <button
+              onClick={() => showFormPopup()}
+              className="button w-80 desktop:w-[34rem]"
+            >
+              {t("button")}
+            </button>
           </div>
         </div>
       </div>

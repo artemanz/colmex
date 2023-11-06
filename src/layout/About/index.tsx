@@ -1,46 +1,46 @@
 import { LowCost, Quality, Reliability } from "./assets/svg";
 import repairBg from "./assets/repair-bg.webp";
 import { showFormPopup } from "@/store/popups";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
-const advantages = [
-  {
-    title: "Quality",
-    icon: Quality,
-    content: `Our team of skilled professionals have years of experience in their respective fields, and are trained to handle any job, big or small. From plumbing and electrical work to masonry and tiling, our experts can tackle it all with ease.`,
-  },
-  {
-    title: "Low-cost",
-    icon: LowCost,
-    content: `We understand that home repairs and maintenance can be costly, which is why we offer competitive pricing without sacrificing quality. We believe that everyone deserves access to top-notch home services, and we strive to make our services affordable for all.`,
-  },
-  {
-    title: "Reliability",
-    icon: Reliability,
-    content: `At Col Mex, we understand that your time is valuable, which is why we always arrive on time, and complete our work in a timely and efficient manner. We take pride in our work, and always strive to exceed our clients’ expectations.`,
-  },
-];
-
 const About = (props: Props) => {
+  const { t } = useTranslation();
+
+  const advantages = [
+    {
+      title: t("about.cards.quality.title"),
+      icon: Quality,
+      content: t("about.cards.quality.text"),
+    },
+    {
+      title: t("about.cards.lowcost.title"),
+      icon: LowCost,
+      content: t("about.cards.lowcost.text"),
+    },
+    {
+      title: t("about.cards.reliability.title"),
+      icon: Reliability,
+      content: t("about.cards.reliability.text"),
+    },
+  ];
+
   return (
     <section id="about">
       <div className="px-4 py-16 content">
         <h2 className="mb-8 text-3xl font-bold text-center uppercase font-secondary">
-          we`re col mex
+          {t("about.title")}
         </h2>
 
         <p className="mb-8 text-center text-black desktop:text-xl">
-          COL MEX provides a wide range of services related to the installation
-          and maintenance of air conditioners and refrigeration equipment.
+          {t("about.text.1")}
           <br />
           <br />
-          We also offer comprehensive maintenance and repair services for
-          various facilities. <br />
+          {t("about.text.2")}
           <br />
-          Our goal is to become one of the top choices throughout the state for
-          our excellent work, competitive pricing, and adherence to industry
-          standards.
+          <br />
+          {t("about.text.3")}
         </p>
 
         <ul className="flex flex-col gap-5 mb-8 desktop:grid desktop:grid-cols-3">
@@ -59,7 +59,7 @@ const About = (props: Props) => {
           onClick={() => showFormPopup()}
           className="max-w-full mx-auto button w-80 desktop:w-[34rem]"
         >
-          BOOK NOW
+          {t("button")}
         </button>
       </div>
 
@@ -73,14 +73,17 @@ const About = (props: Props) => {
         <div className="absolute inset-0 bg-opacity-25 bg-neutral"></div>
 
         <div className="relative text-white content">
-          <p className="mb-4 text-3xl font-bold uppercase font-secondary desktop:text-4xl">
-            Your Repair Pros
+          <p className="mb-4 text-3xl font-bold uppercase whitespace-pre-line font-secondary desktop:text-4xl">
+            {t("about.banner.title")}
           </p>
           <p className="mb-12 desktop:text-2xl">
-            From Repairs to Renovations, <br /> We've Got You Covered
+            {t("about.banner.text.1")} <br /> {t("about.banner.text.2")}
           </p>
-          <button onClick={() => showFormPopup()} className="button w-80 desktop:w-[34rem]">
-            BOOK NOW
+          <button
+            onClick={() => showFormPopup()}
+            className="button w-80 desktop:w-[34rem]"
+          >
+            {t("button")}
           </button>
         </div>
       </div>
