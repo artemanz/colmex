@@ -3,6 +3,10 @@ export default {
     header: {
       contact: "Contacto",
       question: "¿Tiene alguna pregunta?",
+      aboutText: {
+        1: "Reparaciones profesionales",
+        2: "& Servicios de Mantenimiento",
+      },
       menu: {
         about: "Acerca de",
         services: "Servicios",
@@ -22,6 +26,7 @@ export default {
         1: "Aire acondicionado profesional, fontanería,",
         2: "PINTURA, reparaciones ",
         3: "y servicios de mantenimiento",
+        4: "EN PLAYA DEL CARMEN",
       },
     },
     about: {
@@ -85,16 +90,16 @@ export default {
         "Póngase en contacto con nuestro equipo o complete el siguiente formulario. Un representante se comunicará con usted en breve.",
       list: {
         1: {
-          1: "Plantee Su Solicitud",
-          2: "Hablaremos sobre sus problemas, cómo usa la tecnología y qué desea obtener de ELLA.",
+          1: "Evaluación de Necesidades:",
+          2: "Hablemos sobre sus necesidades de aire acondicionado, fontanería, pintura, reparaciones o servicios de mantenimiento. Discutiremos los detalles para entender exactamente lo que está buscando.",
         },
         2: {
-          1: "Obtener Estimación",
-          2: "Si somos la opción adecuada, elegirá el acuerdo de servicio de TI que mejor funcione para su organización.",
+          1: "Presupuesto Personalizado:",
+          2: "Basándonos en nuestra conversación, proporcionaremos un presupuesto detallado para los servicios que necesita. Esto incluirá un desglose de los costos y un claro resumen de lo que puede esperar de nuestros servicios profesionales.",
         },
         3: {
-          1: "Programar Visita",
-          2: "En cuestión de días, lo experimentarás como nunca antes.",
+          1: "Programación Rápida del Servicio:",
+          2: "Una vez que haya aprobado el presupuesto, trabajaremos con usted para programar un momento conveniente para que nuestro equipo capacitado lo visite. Espere que estemos en su ubicación en Playa del Carmen en cuestión de días, listos para abordar sus necesidades de aire acondicionado, fontanería, pintura, reparaciones o servicios de mantenimiento.",
         },
       },
     },

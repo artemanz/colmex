@@ -3,6 +3,7 @@ export default {
     header: {
       contact: "Contact",
       question: "Have a questions?",
+      aboutText: { 1: "Professional Repairs", 2: "& Handyman Services" },
       menu: {
         about: "About",
         services: "Services",
@@ -22,6 +23,7 @@ export default {
         1: "Professional AC, PLUBMING,",
         2: "PAINTINg, Repairs",
         3: "and Handyman Services",
+        4: "in PLAYA DEL CARMEN",
       },
     },
     about: {
@@ -70,7 +72,7 @@ export default {
       },
     },
     instagram: {
-      title: "Follow us on Instagram"
+      title: "Follow us on Instagram",
     },
     work: {
       title: "AVAILABLE TIME",
@@ -78,21 +80,22 @@ export default {
     feedback: {
       accent: "GET A FREE QUOTE",
       title: "HOW IT WORKS",
-      subtitle: "Please contact our team or complete the form below. A representative will contact you shortly.",
+      subtitle:
+        "Please contact our team or complete the form below. A representative will contact you shortly.",
       list: {
         1: {
           1: "Raise Your Request",
-          2: "We'll talk about your issues, how you use technology, and what you want to get out of IT."
+          2: "Let's chat about your AC, plumbing, painting, repairs, or handyman needs. We'll discuss the specifics to understand exactly what you're looking for.",
         },
         2: {
           1: "Get Estimate",
-          2: "If we're the right fit, you'll choose the IT service agreement that works best for your organization."
+          2: "Based on our discussion, we'll provide a detailed estimate for the services you need. This will include a breakdown of costs and a clear outline of what to expect from our professional services.",
         },
         3: {
-          1: "Schedule Visit",
-          2: "Within days, you'll be experiencing IT like never before."
+          1: "Visit Schedule",
+          2: "Once you've approved the estimate, we'll work with you to schedule a convenient time for our skilled team to visit. Expect us to be at your location in Playa del Carmen within days, ready to tackle your AC, plumbing, painting, repairs, or handyman tasks.",
         },
-      }
+      },
     },
     form: {
       title: "CONTACT US",
@@ -136,7 +139,7 @@ export default {
     },
     greetings: {
       1: "Thank you for your message",
-      2: "We will contact you shortly"
+      2: "We will contact you shortly",
     },
     button: "BOOK NOW",
   },

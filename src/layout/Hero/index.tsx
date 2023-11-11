@@ -29,7 +29,8 @@ const Hero = (props: Props) => {
             {t("hero.title.1")}
             <br />
             {t("hero.title.2")} <br />
-            {t("hero.title.3")}
+            {t("hero.title.3")} <br/>
+            {t("hero.title.4")} <br/>
           </h1>
 
           <Form />

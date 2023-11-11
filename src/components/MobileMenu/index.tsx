@@ -7,6 +7,7 @@ import { accordions } from "../accordions";
 import { links } from "../links";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { changeLang } from "@/store/lang";
 
 interface Props {
   mobileMenu: boolean;
@@ -73,7 +74,7 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
             </button>
             <div
               className={clsx(
-                "transition-all duration-300 px-2 overflow-hidden rounded-xl border-accent max-w-[75%] mx-auto w-full",
+                "transition-all duration-300 px-2 overflow-hidden rounded-xl border-accent mx-auto w-full",
                 accordion === idx && "border py-2 mt-5"
               )}
             >
@@ -99,7 +100,19 @@ const MobileMenu = ({ mobileMenu, setMobileMenu }: Props) => {
       <div className="flex flex-col items-center mt-auto">
         <Globe />
         <span>
-          <Link to="#en">ENG</Link> / <Link to="#esp">ESP</Link>
+          <button
+            onClick={() => changeLang("en")}
+            className="transition-colors hover:text-accent"
+          >
+            ENG
+          </button>{" "}
+          /{" "}
+          <button
+            onClick={() => changeLang("esp")}
+            className="transition-colors hover:text-accent"
+          >
+            ESP
+          </button>
         </span>
       </div>
     </motion.div>

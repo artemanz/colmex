@@ -112,18 +112,22 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
         <a href="/">
           <Logo />
         </a>
+        <p className="flex-shrink-0 text-xs leading-loose text-neutral mobile:block">
+          {t("header.aboutText.1")} <br />
+          {t("header.aboutText.2")}
+        </p>
 
         {mobileMenu ? (
           <button
             onClick={() => setMobileMenu(false)}
-            className="flex justify-center w-8 ml-auto text-center text-accent"
+            className="flex justify-center w-12 ml-auto text-center text-accent"
           >
             <Close />
           </button>
         ) : (
           <button
             onClick={() => setMobileMenu(true)}
-            className="flex justify-center w-8 ml-auto text-center text-accent"
+            className="flex justify-center w-12 ml-auto text-center text-accent"
           >
             <Burger />
           </button>
@@ -179,7 +183,9 @@ const Header = ({ mobileMenu, setMobileMenu }: Props) => {
               </span>
             </button>
           </li>
-          <Logo />
+          <a href="/">
+            <Logo />
+          </a>
           <li
             key={accordions[2].title}
             className="py-3 transition-all duration-300"

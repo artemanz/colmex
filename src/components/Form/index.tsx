@@ -1,3 +1,4 @@
+import { WhatsApp } from "@/assets/svg";
 import {
   hideFormPopup,
   hideGreetingsPopup,
@@ -7,12 +8,14 @@ import { ChangeEventHandler } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import emailjs from "@emailjs/browser";
+
 interface Props {}
 
-interface IForm {
+type IForm = {
   name: string;
   phone: string;
-}
+};
 
 const Form = (props: Props) => {
   const { t } = useTranslation();
@@ -24,6 +27,7 @@ const Form = (props: Props) => {
   } = useForm<IForm>();
 
   const submit: SubmitHandler<IForm> = (formData) => {
+    console.log(formData);
     reset();
     hideFormPopup();
     showGreetingsPopup();
@@ -64,7 +68,15 @@ const Form = (props: Props) => {
         />
       </div>
 
-      <button className="w-full button">{t("form.button")}</button>
+      <button className="w-full h-16 button">{t("form.button")}</button>
+      <a
+        href="https://wa.me/+529844513615"
+        className="flex items-center justify-center w-full h-16 gap-4 mt-4 uppercase bg-green-500 cursor-pointer button hover:bg-green-400 focus:bg-green-400"
+        target="_blank"
+      >
+        <WhatsApp />
+        WHATSAPP
+      </a>
     </form>
   );
 };

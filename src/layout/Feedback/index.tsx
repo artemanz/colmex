@@ -11,7 +11,7 @@ const Feedback = (props: Props) => {
     <section id="feedback">
       <div className="desktop:flex">
         <div className="px-4 py-20 text-white bg-foreground basis-1/2">
-          <div className="max-w-sm mx-auto">
+          <div className="max-w-xl mx-auto">
             <div className="mb-8 text-center">
               <p className="mb-2 text-accent">{t("feedback.accent")}</p>
               <h2 className="mb-4 text-3xl font-bold uppercase font-secondary">

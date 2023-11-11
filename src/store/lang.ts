@@ -8,7 +8,7 @@ const getInitialLang = () => {
     const parsed = JSON.parse(lang);
     if (["en", "esp"].includes(parsed)) return parsed;
   }
-  return "en";
+  return "esp";
 };
 
 export const $lang = createStore({
