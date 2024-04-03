@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 interface Props {}
@@ -6,16 +6,8 @@ interface Props {}
 const Instagram = (props: Props) => {
   const { t } = useTranslation();
 
-  const widget = useRef<HTMLInputElement | null>(null);
   useEffect(() => {
-    const script = document.createElement("script");
-
-    script.src = "https://g6zcd6-3000.csb.app/widget.js";
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    if (window.WEBLAB_WIDGET) window.WEBLAB_WIDGET.init();
   }, []);
 
   return (
@@ -25,7 +17,7 @@ const Instagram = (props: Props) => {
           {t("instagram.title")}
         </h2>
 
-        <div ref={widget} id="instagram-widget-weblab"></div>
+        <div id="instagram-widget-weblab"></div>
       </div>
     </section>
   );

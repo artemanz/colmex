@@ -90,7 +90,7 @@ const Footer = (props: Props) => {
         </div>
 
         <p className="text-lg text-center">
-          © COL MEX, 2023 <br />
+          © COL MEX, {new Date().getFullYear()} <br />
           {t("footer.weblab")}{" "}
           <a className="transition-colors hover:text-accent" href="https://weblab420.com/" target="_blank">
             WEBLAB 420

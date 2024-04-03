@@ -5,13 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Col Mex</title>
-    <meta property="og:image" content="/название_картинки.png">
+    <meta property="og:image" content="/название_картинки.png" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      var CONFIG = {
+      window.WEBLAB_WIDGET_CONFIG = {
+        token: "b4Wb3YhfJ3catVJyaaiKK9hY10p2",
         login: "serviciosoperativoscolmex",
         header: true,
         profile_picture: true,
@@ -22,7 +23,10 @@
         followersCount: true,
         followingCount: true,
         followButton: true,
+        backgroundColor: "transparent",
+        color: "#000000",
       };
     </script>
+    <script src="https://widgeterius.com/api/widget"></script>
   </body>
 </html>
